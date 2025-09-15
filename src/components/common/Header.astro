@@ -1,5 +1,4 @@
 ---
-// src/components/common/Header.astro
 const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
@@ -8,21 +7,24 @@ const navLinks = [
   { name: 'Reservations', href: '/reservation' },
 ];
 ---
-<header class="sticky top-0 z-50 bg-white shadow-lg backdrop-blur-lg bg-opacity-80">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="text-3xl font-bold text-gray-800">
+<header class="absolute top-0 w-full z-50 bg-black bg-opacity-30">
+    <nav class="container mx-auto px-6 py-6 flex justify-between items-center text-white">
+        <div class="text-3xl font-bold font-playfair tracking-wide">
             <a href="/">Gastronomo</a>
         </div>
         <div class="md:hidden">
-            <button class="text-gray-800 focus:outline-none">
+            <button class="focus:outline-none">
                 <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
                 </svg>
             </button>
         </div>
-        <div class="hidden md:flex items-center space-x-8">
+        <div class="hidden md:flex items-center space-x-8 uppercase text-sm tracking-widest">
             {navLinks.map((link) => (
-                <a href={link.href} class="text-gray-600 hover:text-gray-900 transition duration-300 transform hover:scale-105">{link.name}</a>
+                <a href={link.href} class="relative transition duration-300 hover:text-yellow-500">
+                    {link.name}
+                    <span class="absolute left-0 bottom-0 w-full h-[2px] bg-yellow-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                </a>
             ))}
         </div>
     </nav>
