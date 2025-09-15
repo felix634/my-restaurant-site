@@ -1,16 +1,33 @@
 ---
-
+// src/pages/index.astro
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/common/Header.astro';
 ---
+<MainLayout title="Welcome to Gastronomo">
+    <Header />
+    <main>
+        <section class="h-[80vh] bg-cover bg-center flex items-center justify-center relative" style="background-image: url('/hero-bg.jpg');">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="text-center z-10 p-4">
+                <h1 class="text-5xl md:text-7xl text-white font-bold mb-4">Gastronomo</h1>
+                <p class="text-xl md:text-2xl text-white mb-8">Experience Culinary Excellence</p>
+                <a href="/menu" class="bg-yellow-500 text-white font-bold py-3 px-6 rounded-full hover:bg-yellow-600 transition duration-300">Explore Menu</a>
+            </div>
+        </section>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+        <section class="container mx-auto py-16 px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="/our-story.jpg" alt="A chef preparing a dish" class="rounded-xl shadow-xl">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-4xl font-bold mb-4">Our Story</h2>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Gastronomo was founded on a simple principle: to create a dining experience that is both sophisticated and deeply personal. Our chefs craft each dish with passion, using only the freshest, locally sourced ingredients.
+                    </p>
+                    <a href="/about" class="text-yellow-600 font-bold hover:underline">Read More About Us &rarr;</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</MainLayout>

@@ -1,0 +1,29 @@
+---
+// src/components/common/Header.astro
+const navLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Menu', href: '/menu' },
+  { name: 'Gallery', href: '/galeria' },
+  { name: 'Reservations', href: '/reservation' },
+];
+---
+<header class="sticky top-0 z-50 bg-white shadow-lg backdrop-blur-lg bg-opacity-80">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-3xl font-bold text-gray-800">
+            <a href="/">Gastronomo</a>
+        </div>
+        <div class="md:hidden">
+            <button class="text-gray-800 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => (
+                <a href={link.href} class="text-gray-600 hover:text-gray-900 transition duration-300 transform hover:scale-105">{link.name}</a>
+            ))}
+        </div>
+    </nav>
+</header>
