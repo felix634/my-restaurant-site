@@ -3,9 +3,9 @@ import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/common/Header.astro';
 ---
 <MainLayout title="Welcome to Gastronomo">
-    <Header />
+    <Header transparent={true} />
     <main>
-        <!-- Hero Section: Updated for Elegance -->
+        <!-- The rest of your homepage content remains the same -->
         <section class="relative h-[100vh] bg-cover bg-center flex items-center justify-center text-white" style="background-image: url('/hero-bg.jpg');">
             <!-- Semi-transparent overlay for text legibility -->
             <div class="absolute inset-0 bg-black opacity-50"></div>
@@ -13,7 +13,7 @@ import Header from '../components/common/Header.astro';
             <div class="text-center z-10 px-4">
                 <h1 class="font-cinzel text-5xl md:text-7xl font-bold mb-4">Gastronomo</h1>
                 <p class="text-xl md:text-2xl mb-8 tracking-widest uppercase">Experience Culinary Excellence</p>
-                <a href="/reservation" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 transition duration-300 hover:bg-white hover:text-black hover:border-transparent">Request Booking</a>
+                <a href="/reservation" class="bg-transparent border-2 border-white text-white font-bold py-3 px-8 transition duration-300 hover:bg-white hover:text-black hover:border-transparent">Book a Table</a>
             </div>
         </section>
 

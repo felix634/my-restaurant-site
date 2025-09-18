@@ -1,4 +1,14 @@
 ---
+export interface Props {
+    transparent?: boolean;
+}
+
+const { transparent = false } = Astro.props;
+
+const headerClasses = transparent
+  ? 'absolute top-0 w-full z-50 bg-black bg-opacity-30'
+  : 'relative top-0 w-full z-50 bg-gray-800';
+
 const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: '/about' },
@@ -7,7 +17,7 @@ const navLinks = [
   { name: 'Reservations', href: '/reservation' },
 ];
 ---
-<header class="absolute top-0 w-full z-50 bg-black bg-opacity-30">
+<header class={headerClasses}>
     <nav class="container mx-auto px-6 py-6 flex justify-between items-center text-white">
         <div class="text-3xl font-cinzel tracking-wide">
             <a href="/">Gastronomo</a>
