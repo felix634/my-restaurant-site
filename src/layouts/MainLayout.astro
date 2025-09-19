@@ -1,59 +1,83 @@
 ---
-// src/components/common/Header.astro
+import Header from '../components/common/Header.astro';
+import Footer from '../components/common/Footer.astro';
+
 export interface Props {
-    transparent?: boolean;
+    title: string;
 }
 
-const { transparent = false } = Astro.props;
-
-const headerClasses = transparent
-  ? 'absolute top-0 w-full z-50 bg-black bg-opacity-30'
-  : 'relative top-0 w-full z-50 bg-gray-800';
-
-const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Menu', href: '/menu' },
-  { name: 'Gallery', href: '/galeria' },
-  { name: 'Reservations', href: '/reservation' },
-];
+const { title } = Astro.props;
 ---
-<header class={headerClasses}>
-    <nav class="container mx-auto px-6 py-6 flex justify-between items-center text-white">
-        <div class="text-3xl font-cinzel tracking-wide">
-            <a href="/">Gastronomo</a>
-        </div>
-        <input type="checkbox" id="menu-toggle" class="hidden" />
-        <label for="menu-toggle" class="md:hidden cursor-pointer focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-        </label>
-        
-        <div class="hidden md:flex items-center space-x-8 uppercase text-sm tracking-widest">
-            {navLinks.map((link) => (
-                <a href={link.href} class="relative transition duration-300 hover:text-yellow-500">
-                    {link.name}
-                    <span class="absolute left-0 bottom-0 w-full h-[2px] bg-yellow-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
-                </a>
-            ))}
-        </div>
-    </nav>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style is:global>
+        /* CSS for the cursor trail particles */
+        .cursor-trail-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            background-color: white;
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.5);
+        }
 
-    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-gray-800 bg-opacity-95 items-center justify-center flex-col space-y-8 uppercase text-lg tracking-widest font-bold text-white">
-        <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer">
-            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </label>
-        {navLinks.map((link) => (
-            <a href={link.href} class="hover:text-yellow-500 transition duration-300">{link.name}</a>
-        ))}
-    </div>
-</header>
-<style>
-    /* This CSS links the checkbox to the mobile menu visibility */
-    #menu-toggle:checked ~ #mobile-menu {
-        display: flex !important;
-    }
-</style>
+        /* Your other styles for fonts and colors */
+        body {
+            font-family: 'Roboto', sans-serif;
+            @apply text-gray-700 bg-gray-50;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-cinzel {
+            font-family: 'Cinzel Decorative', serif;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <slot />
+    <Footer />
+
+    <script is:client>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.addEventListener('mousemove', (e) => {
+                // Create a new div element for the trail particle
+                const particle = document.createElement('div');
+                particle.className = 'cursor-trail-particle';
+                document.body.appendChild(particle);
+
+                // Set the initial position of the particle
+                particle.style.left = `${e.clientX}px`;
+                particle.style.top = `${e.clientY}px`;
+                
+                // Trigger the animation after a short delay
+                setTimeout(() => {
+                    particle.style.transform = 'scale(1)';
+                    particle.style.opacity = '1';
+                }, 10);
+
+                // Make the particle fade out and be removed after a short time
+                setTimeout(() => {
+                    particle.style.transform = 'scale(0.1)';
+                    particle.style.opacity = '0';
+                }, 300);
+
+                // Remove the particle from the DOM when the animation is done
+                setTimeout(() => {
+                    particle.remove();
+                }, 800);
+            });
+        });
+    </script>
+</body>
+</html>
