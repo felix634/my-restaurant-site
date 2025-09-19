@@ -49,32 +49,34 @@ const { title } = Astro.props;
     <Footer />
 
     <script is:client>
-        document.addEventListener('mousemove', (e) => {
-            // Create a new div element for the trail particle
-            const particle = document.createElement('div');
-            particle.className = 'cursor-trail-particle';
-            document.body.appendChild(particle);
+        document.addEventListener('DOMContentLoaded', () => {
+            document.addEventListener('mousemove', (e) => {
+                // Create a new div element for the trail particle
+                const particle = document.createElement('div');
+                particle.className = 'cursor-trail-particle';
+                document.body.appendChild(particle);
 
-            // Set the initial position of the particle
-            particle.style.left = `${e.clientX}px`;
-            particle.style.top = `${e.clientY}px`;
-            
-            // Trigger the animation after a short delay
-            setTimeout(() => {
-                particle.style.transform = 'scale(1)';
-                particle.style.opacity = '1';
-            }, 10);
+                // Set the initial position of the particle
+                particle.style.left = `${e.clientX}px`;
+                particle.style.top = `${e.clientY}px`;
+                
+                // Trigger the animation after a short delay
+                setTimeout(() => {
+                    particle.style.transform = 'scale(1)';
+                    particle.style.opacity = '1';
+                }, 10);
 
-            // Make the particle fade out and be removed after a short time
-            setTimeout(() => {
-                particle.style.transform = 'scale(0.1)';
-                particle.style.opacity = '0';
-            }, 300);
+                // Make the particle fade out and be removed after a short time
+                setTimeout(() => {
+                    particle.style.transform = 'scale(0.1)';
+                    particle.style.opacity = '0';
+                }, 300);
 
-            // Remove the particle from the DOM when the animation is done
-            setTimeout(() => {
-                particle.remove();
-            }, 800);
+                // Remove the particle from the DOM when the animation is done
+                setTimeout(() => {
+                    particle.remove();
+                }, 800);
+            });
         });
     </script>
 </body>
