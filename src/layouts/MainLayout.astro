@@ -48,7 +48,7 @@ const { title } = Astro.props;
     <slot />
     <Footer />
 
-    <script is:inline>
+    <script is:client>
         document.addEventListener('mousemove', (e) => {
             // Create a new div element for the trail particle
             const particle = document.createElement('div');
