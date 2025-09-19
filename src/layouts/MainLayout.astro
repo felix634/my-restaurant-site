@@ -18,20 +18,20 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style is:global>
-        /* CSS for the cursor trail */
+        /* CSS for the cursor trail (Updated for line effect) */
         #cursor-trail {
             position: fixed;
             top: 0;
             left: 0;
-            width: 20px;
-            height: 20px;
+            width: 80px; /* Make it longer */
+            height: 2px; /* Make it thinner */
             background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            pointer-events: none; /* Prevents it from blocking clicks */
+            border-radius: 0; /* No rounded corners */
+            pointer-events: none;
             z-index: 9999;
-            transition: transform 0.1s ease-out; /* Smooth movement */
+            transition: transform 0.1s ease-out, opacity 0.5s ease; /* Add opacity transition for a fading effect */
             transform: translate(-50%, -50%);
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 5px rgba(255, 255, 255, 0.5); /* Glowing effect */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
         }
 
         /* Your other styles for fonts and colors */
