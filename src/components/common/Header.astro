@@ -23,14 +23,16 @@ const navLinks = [
         <div class="text-xl sm:text-3xl font-cinzel tracking-wide">
             <a href="/">Gastronomo</a>
         </div>
-        <input type="checkbox" id="menu-toggle" class="hidden" />
-        <label id="hamburger-icon" for="menu-toggle" class="md:hidden cursor-pointer focus:outline-none">
-            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-            </svg>
-        </label>
         
-        <!-- Desktop Menu -->
+        <div class="md:hidden">
+            <input type="checkbox" id="menu-toggle" class="hidden" />
+            <label for="menu-toggle" class="cursor-pointer focus:outline-none">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </label>
+        </div>
+        
         <div class="hidden md:flex items-center space-x-8 uppercase text-sm tracking-widest">
             {navLinks.map((link) => (
                 <a href={link.href} class="relative transition duration-300 hover:text-yellow-500">
@@ -41,7 +43,6 @@ const navLinks = [
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-gray-800 bg-opacity-95 items-center justify-center flex-col space-y-8 uppercase text-lg tracking-widest font-bold text-white">
         <label for="menu-toggle" class="absolute top-6 right-6 cursor-pointer">
             <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -57,8 +58,5 @@ const navLinks = [
     /* This CSS links the checkbox to the mobile menu visibility */
     #menu-toggle:checked ~ #mobile-menu {
         display: flex !important;
-    }
-    #menu-toggle:checked ~ nav #hamburger-icon {
-        display: none !important;
     }
 </style>
