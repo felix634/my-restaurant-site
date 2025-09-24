@@ -1,6 +1,11 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/common/Header.astro';
+import { Image } from 'astro:assets';
+import bruschettaImg from '/public/bruschetta.jpg';
+import burrataImg from '/public/burrata.jpg';
+import salmonImg from '/public/salmon.jpg';
+import filetMignonImg from '/public/filet-mignon.jpg';
 ---
 <MainLayout title="Our Menu - Gastronomo">
     <Header />
@@ -11,15 +16,15 @@ import Header from '../components/common/Header.astro';
             <section>
                 <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center border-b-2 border-yellow-500 pb-2">Appetizers</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="bg-white p-6 rounded-xl shadow-md flex items-start gap-4">
-                        <img src="/bruschetta.jpg" alt="Bruschetta" class="w-24 h-24 object-cover rounded-lg">
+                    <div class="bg-white p-6 rounded-xl shadow-md flex flex-col md:flex-row items-center md:items-start gap-4">
+                        <Image src={bruschettaImg} alt="Heirloom Tomato Bruschetta" width={100} height={100} class="w-full md:w-24 md:h-24 object-cover rounded-lg" />
                         <div>
                             <h3 class="text-2xl font-bold">Heirloom Tomato Bruschetta</h3>
                             <p class="text-gray-600 mt-2">Grilled ciabatta topped with fresh heirloom tomatoes, garlic, basil, and a balsamic glaze.</p>
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md flex items-start gap-4">
-                        <img src="/burrata.jpg" alt="Burrata Caprese" class="w-24 h-24 object-cover rounded-lg">
+                    <div class="bg-white p-6 rounded-xl shadow-md flex flex-col md:flex-row items-center md:items-start gap-4">
+                        <Image src={burrataImg} alt="Burrata Caprese" width={100} height={100} class="w-full md:w-24 md:h-24 object-cover rounded-lg" />
                         <div>
                             <h3 class="text-2xl font-bold">Burrata Caprese</h3>
                             <p class="text-gray-600 mt-2">Creamy burrata cheese with fresh mozzarella, cherry tomatoes, and basil pesto.</p>
@@ -31,15 +36,15 @@ import Header from '../components/common/Header.astro';
             <section>
                 <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center border-b-2 border-yellow-500 pb-2">Main Courses</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="bg-white p-6 rounded-xl shadow-md flex items-start gap-4">
-                        <img src="/salmon.jpg" alt="Salmon filet" class="w-24 h-24 object-cover rounded-lg">
+                    <div class="bg-white p-6 rounded-xl shadow-md flex flex-col md:flex-row items-center md:items-start gap-4">
+                        <Image src={salmonImg} alt="Pan-Seared Atlantic Salmon" width={100} height={100} class="w-full md:w-24 md:h-24 object-cover rounded-lg" />
                         <div>
                             <h3 class="text-2xl font-bold">Pan-Seared Atlantic Salmon</h3>
                             <p class="text-gray-600 mt-2">Served on a bed of roasted asparagus with a lemon-dill butter sauce.</p>
                         </div>
                     </div>
-                    <div class="bg-white p-6 rounded-xl shadow-md flex items-start gap-4">
-                        <img src="/filet-mignon.jpg" alt="Beef steak" class="w-24 h-24 object-cover rounded-lg">
+                    <div class="bg-white p-6 rounded-xl shadow-md flex flex-col md:flex-row items-center md:items-start gap-4">
+                        <Image src={filetMignonImg} alt="Filet Mignon" width={100} height={100} class="w-full md:w-24 md:h-24 object-cover rounded-lg" />
                         <div>
                             <h3 class="text-2xl font-bold">Filet Mignon</h3>
                             <p class="text-gray-600 mt-2">A tender 8oz filet, grilled to perfection, with red wine reduction and garlic mashed potatoes.</p>

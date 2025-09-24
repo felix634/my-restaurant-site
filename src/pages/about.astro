@@ -1,6 +1,8 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/common/Header.astro';
+import { Image } from 'astro:assets';
+import aboutChefImg from '/public/about-us-chef.jpg';
 ---
 <MainLayout title="About Us - Gastronomo">
     <Header />
@@ -8,7 +10,7 @@ import Header from '../components/common/Header.astro';
         <h1 class="text-5xl font-bold text-center mb-12">About Gastronomo</h1>
         <div class="flex flex-col md:flex-row items-center gap-12">
             <div class="md:w-1/2">
-                <img src="/about-us-chef.jpg" alt="Our team of chefs" class="rounded-xl shadow-xl">
+                <Image src={aboutChefImg} alt="Our team of chefs" width={600} height={400} class="rounded-xl shadow-xl" />
             </div>
             <div class="md:w-1/2">
                 <h2 class="text-4xl font-bold mb-4">Our Passion for Food</h2>
