@@ -1,7 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/common/Header.astro';
-import { Image } from 'astro:assets';
 import gallery1 from '/public/gallery-1.jpg';
 import gallery2 from '/public/gallery-2.jpg';
 import gallery3 from '/public/gallery-3.jpg';
@@ -16,14 +15,14 @@ import gallery8 from '/public/gallery-8.jpg';
     <main class="container mx-auto px-6 pt-24 pb-16">
         <h1 class="text-5xl font-bold text-center mb-12">Our Gallery</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <Image src={gallery1} alt="Dining room interior" width={400} height={400} class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
-            <Image src={gallery2} alt="Chef preparing a dish" width={400} height={400} class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
-            <Image src={gallery3} alt="Dessert presentation" width={400} height={400} class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
-            <Image src={gallery4} alt="Wine cellar" width={400} height={400} class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
-            <Image src={gallery5} alt="Beautifully plated dish" width={400} height={400} class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
-            <Image src={gallery6} alt="Outdoor seating" width={400} height={400} class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
-            <Image src={gallery7} alt="Bar area" width={400} height={400} class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
-            <Image src={gallery8} alt="Happy customers" width={400} height={400} class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
+            <img src={gallery1} alt="Dining room interior" width="400" height="400" class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
+            <img src={gallery2} alt="Chef preparing a dish" width="400" height="400" class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
+            <img src={gallery3} alt="Dessert presentation" width="400" height="400" class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
+            <img src={gallery4} alt="Wine cellar" width="400" height="400" class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
+            <img src={gallery5} alt="Beautifully plated dish" width="400" height="400" class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
+            <img src={gallery6} alt="Outdoor seating" width="400" height="400" class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
+            <img src={gallery7} alt="Bar area" width="400" height="400" class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
+            <img src={gallery8} alt="Happy customers" width="400" height="400" class="w-full h-auto rounded-lg shadow-lg object-cover aspect-square" />
         </div>
     </main>
 </MainLayout>
