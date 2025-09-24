@@ -48,7 +48,7 @@ const navLinks = [
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-gray-800 bg-opacity-95 flex flex-col items-center justify-center space-y-8 uppercase text-lg tracking-widest font-bold text-white">
+    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-gray-800 bg-opacity-95 items-center justify-center flex-col space-y-8 uppercase text-lg tracking-widest font-bold text-white">
         {navLinks.map((link) => (
             <a href={link.href} class="hover:text-yellow-500 transition duration-300">{link.name}</a>
         ))}
