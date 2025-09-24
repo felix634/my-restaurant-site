@@ -1,15 +1,13 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/common/Header.astro';
-import heroBg from '/public/hero-bg.jpg';
-import ourStoryImg from '/public/our-story.jpg';
 ---
 <MainLayout title="Welcome to Gastronomo">
     <Header transparent={true} />
     <main>
         <section class="relative h-[100vh] bg-cover bg-center flex items-center justify-center text-white">
             <div class="absolute inset-0 z-0 w-full h-full">
-                <img src={heroBg} alt="A beautiful outdoor dining area" class="w-full h-full object-cover" />
+                <img src="/hero-bg.jpg" alt="A beautiful outdoor dining area" class="w-full h-full object-cover" />
             </div>
             <div class="absolute inset-0 z-10 bg-black opacity-50"></div>
             
@@ -23,7 +21,7 @@ import ourStoryImg from '/public/our-story.jpg';
         <section class="container mx-auto py-16 px-6">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
-                    <img src={ourStoryImg} alt="A chef preparing a dish" width="600" height="400" class="rounded-xl shadow-xl" />
+                    <img src="/our-story.jpg" alt="A chef preparing a dish" width="600" height="400" class="rounded-xl shadow-xl" />
                 </div>
                 <div class="md:w-1/2">
                     <h2 class="text-4xl font-bold mb-4">Enjoy the Tastiest Form of Art with Us</h2>
