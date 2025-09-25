@@ -7,36 +7,41 @@ export interface Props {
 const { transparent = false } = Astro.props;
 
 const headerClasses = transparent
-  ? 'absolute top-0 w-full z-50 bg-black bg-opacity-30'
-  : 'relative top-0 w-full z-50 bg-gray-800';
+    ? 'absolute top-0 w-full z-50 bg-black bg-opacity-30'
+    : 'relative top-0 w-full z-50 bg-gray-800';
 
 const navLinks = [
-  { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Menu', href: '/menu' },
-  { name: 'Gallery', href: '/galeria' },
-  { name: 'Reservations', href: '/reservation' },
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Menu', href: '/menu' },
+    { name: 'Gallery', href: '/galeria' },
+    { name: 'Reservations', href: '/reservation' },
 ];
 ---
 <header class={headerClasses}>
     <nav class="container mx-auto px-6 py-6 flex justify-between items-center text-white">
-        <div class="text-xl sm:text-3xl font-cinzel tracking-wide">
-            <a href="/">Gastronomo</a>
+        <div class="flex items-center">
+            <a href="/" class="flex items-center">
+                <img 
+                    src="/logo.png" 
+                    alt="Gastronomo Logo" 
+                    class="h-10 w-auto mr-3" 
+                />
+                <span class="text-xl sm:text-3xl font-cinzel tracking-wide">
+                    GASTRONOMO
+                </span>
+            </a>
         </div>
         
-        <!-- Hamburger/Close Button -->
         <button id="menu-button" class="md:hidden focus:outline-none z-50">
-            <!-- Hamburger Icon -->
             <svg id="hamburger-icon" class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
-            <!-- Close Icon -->
             <svg id="close-icon" class="hidden h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
             </svg>
         </button>
         
-        <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-8 uppercase text-sm tracking-widest">
             {navLinks.map((link) => (
                 <a href={link.href} class="relative transition duration-300 hover:text-yellow-500">
@@ -47,7 +52,6 @@ const navLinks = [
         </div>
     </nav>
 
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-gray-800 bg-opacity-95 items-center justify-center flex-col space-y-8 uppercase text-lg tracking-widest font-bold text-white">
         {navLinks.map((link) => (
             <a href={link.href} class="hover:text-yellow-500 transition duration-300">{link.name}</a>
