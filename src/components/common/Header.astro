@@ -42,7 +42,7 @@ const navLinks = [
             </svg>
         </button>
         
-        <div class="hidden md:flex items-center space-x-9 uppercase text-sm tracking-widest">
+        <div class="hidden md:flex items-center space-x-8 uppercase text-sm tracking-widest">
             {navLinks.map((link) => (
                 <a href={link.href} class="relative transition duration-300 hover:text-yellow-500">
                     {link.name}
@@ -52,7 +52,12 @@ const navLinks = [
         </div>
     </nav>
 
-    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-gray-800 bg-opacity-95 items-center justify-center flex-col space-y-8 uppercase text-lg tracking-widest font-bold text-white">
+    <div 
+        id="mobile-menu" 
+        class="hidden fixed inset-0 z-40 bg-gray-800 bg-opacity-95 
+               flex flex-col items-center justify-center 
+               space-y-8 uppercase text-lg tracking-widest font-bold text-white"
+    >
         {navLinks.map((link) => (
             <a href={link.href} class="hover:text-yellow-500 transition duration-300">{link.name}</a>
         ))}
@@ -68,15 +73,19 @@ const navLinks = [
     menuButton.addEventListener('click', () => {
         const isMenuOpen = !mobileMenu.classList.contains('hidden');
         if (isMenuOpen) {
-            mobileMenu.classList.add('hidden');
-            hamburgerIcon.classList.remove('hidden');
-            closeIcon.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        } else {
-            mobileMenu.classList.remove('hidden');
+            // SHOW MENU
+            mobileMenu.classList.add('flex'); // explicitly set to flex to override hidden
+            mobileMenu.classList.remove('hidden'); 
             hamburgerIcon.classList.add('hidden');
             closeIcon.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
+        } else {
+            // HIDE MENU
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex'); 
+            hamburgerIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+            document.body.style.overflow = 'auto';
         }
     });
 </script>
